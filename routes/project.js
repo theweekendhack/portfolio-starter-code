@@ -1,10 +1,11 @@
 const express=  require("express");
 const router = express.Router();
 
-const projectsController = require("../controllers/project");
+const projectsController = require("../controllers/project.js");
+const valMiddleware = require("../middleware/validation.js");
 
 
-router.get("/",projectsController.getProjects)
+router.get("/",valMiddleware,projectsController.getProjects)
 
 router.post("/",projectsController.createANewProject)
 
